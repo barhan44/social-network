@@ -5,10 +5,12 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<jsp:include page="../section/css.jsp" />
 </head>
 <body>
 	<section class="main">
 		<sitemesh:write property='body' />
 	</section>
+	<jsp:include page="../section/js.jsp" />
 </body>
 </html>
