@@ -1,0 +1,14 @@
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"
+	trimDirectiveWhitespaces="true"%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<section class="main">
+		<sitemesh:write property='body' />
+	</section>
+</body>
+</html>
