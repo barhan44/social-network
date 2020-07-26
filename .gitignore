@@ -1,5 +1,7 @@
 .settings
 .classpath
 .project
+.idea
+social-network.iml
 
 target
