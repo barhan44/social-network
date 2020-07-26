@@ -1,0 +1,15 @@
+:root {
+    --rich-black: #02111B;
+    --onyx: #3F4045;
+    --black-cofee: #30292F;
+    --cadet: #5D737E;
+    --white: #FCFCFC;
+}
+
+.social-network {
+    background-color: var(--rich-black);
+}
+
+.card {
+    margin: 10px;
+}
