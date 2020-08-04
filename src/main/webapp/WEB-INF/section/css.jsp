@@ -8,7 +8,7 @@
 	crossorigin="anonymous">
 
 <!-- Icons -->
-<link rel="stylesheet" href="static/styles/font-awesome.css">
+<link rel="stylesheet" href="/static/styles/font-awesome.css">
 
 <!-- Some our styles -->
-<link rel="stylesheet" href="static/styles/style.css">
+<link rel="stylesheet" href="/static/styles/style.css">
