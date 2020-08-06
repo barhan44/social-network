@@ -53,7 +53,7 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 	private String country;
 
 	@Column(name = "birth_day")
-	private Date birth_day;
+	private Date birthDay;
 
 	@Column(name = "password", length = 100, nullable = false)
 	private String password;
@@ -148,12 +148,12 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 		this.country = country;
 	}
 
-	public Date getBirth_day() {
-		return birth_day;
+	public Date getBirthDay() {
+		return birthDay;
 	}
 
-	public void setBirth_day(Date birth_day) {
-		this.birth_day = birth_day;
+	public void setBirthDay(Date birthDay) {
+		this.birthDay = birthDay;
 	}
 
 	public String getPassword() {
