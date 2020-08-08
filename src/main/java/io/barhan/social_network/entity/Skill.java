@@ -25,7 +25,7 @@ public class Skill extends AbstractEntity<Long> implements Serializable, Profile
 	@Column(unique = true, nullable = false)
 	private Long id;
 
-	@Column(name = "name", nullable = false, length = 50)
+	@Column(name = "category", nullable = false, length = 50)
 	private String category;
 
 	@Column(name = "value", nullable = false)
