@@ -5,11 +5,11 @@ INSERT INTO EDUCATION (id, id_profile, begin_year, finish_year, institution, spe
 VALUES (nextval('education_seq'), 1, 2000, 2005, 'MGU', 'Computer Science');
 
 INSERT INTO HOBBY (id, id_profile, name)
-VALUES (nextval('hobby_seq'), 1, 'programmin');
+VALUES (nextval('hobby_seq'), 1, 'Programming');
 INSERT INTO HOBBY (id, id_profile, name)
-VALUES (nextval('hobby_seq'), 1, 'cs');
+VALUES (nextval('hobby_seq'), 1, 'Computer Science');
 INSERT INTO HOBBY (id, id_profile, name)
-VALUES (nextval('hobby_seq'), 1, 'hockey');
+VALUES (nextval('hobby_seq'), 1, 'Hockey');
 
 INSERT INTO SKILL(id, id_profile, category, value)
 VALUES (nextval('skill_seq'), 1, 'Programming Language', 'Java');
