@@ -92,7 +92,8 @@ CREATE TABLE skill (
     id bigint NOT NULL,
     id_profile bigint NOT NULL,
     category character varying(50) NOT NULL,
-    value text NOT NULL
+    value text NOT NULL,
+    level character varying(50) NOT NULL
 );
 
 

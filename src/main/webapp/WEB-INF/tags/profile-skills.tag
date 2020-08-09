@@ -12,6 +12,7 @@
 				<tr>
 					<th scope="col">Category</th>
 					<th scope="col">Skill</th>
+					<th scope="col">Level</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -19,6 +20,7 @@
 					<tr>
 						<td>${skill.category}</td>
 						<td>${skill.value}</td>
+						<td>${skill.level}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

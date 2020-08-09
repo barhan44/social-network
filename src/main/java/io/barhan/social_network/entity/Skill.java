@@ -30,6 +30,9 @@ public class Skill extends AbstractEntity<Long> implements Serializable, Profile
 
 	@Column(name = "value", nullable = false)
 	private String value;
+	
+	@Column(name = "level", nullable = false)
+	private String level;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_profile", nullable = false)
@@ -68,6 +71,14 @@ public class Skill extends AbstractEntity<Long> implements Serializable, Profile
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
 	}
 
 	@Override

@@ -12,11 +12,11 @@ INSERT INTO HOBBY (id, id_profile, name)
 VALUES (nextval('hobby_seq'), 1, 'Hockey');
 
 INSERT INTO SKILL(id, id_profile, category, value)
-VALUES (nextval('skill_seq'), 1, 'Programming Language', 'Java');
+VALUES (nextval('skill_seq'), 1, 'Programming Language', 'Java', 'Good Knowledge');
 INSERT INTO SKILL(id, id_profile, category, value)
-VALUES (nextval('skill_seq'), 1, 'Programming Language', 'JavaScript');
+VALUES (nextval('skill_seq'), 1, 'Programming Language', 'JavaScript', 'Expert');
 INSERT INTO SKILL(id, id_profile, category, value)
-VALUES (nextval('skill_seq'), 1, 'RDBMS', 'Postgres, Oracle');
+VALUES (nextval('skill_seq'), 1, 'RDBMS', 'Postgres, Oracle', 'Good Knowledge');
 
 INSERT INTO SKILL_CATEGORY(id, category)
 VALUES (1, 'Programming Language');
