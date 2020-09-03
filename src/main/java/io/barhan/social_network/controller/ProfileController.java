@@ -1,33 +1,28 @@
 package io.barhan.social_network.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import java.sql.Date;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import io.barhan.social_network.entity.Profile;
-import io.barhan.social_network.repository.storage.ProfileRepository;
 
-@Controller
+@RestController
 @RequestMapping("/profile")
 public class ProfileController {
 
-	private final ProfileRepository profileRepository;
-
-	@Autowired
-	public ProfileController(ProfileRepository profileRepository) {
-		this.profileRepository = profileRepository;
-	}
-
 	@GetMapping("/{uid}")
-	public String getProfile(@PathVariable String uid, Model model) {
-		Profile profile = this.profileRepository.findByUid(uid);
-		if (profile == null) {
-			return "profile_not_found";
-		}
-		model.addAttribute("profile", profile);
-		return "profile";
+	public Profile getProfile(@PathVariable String uid) {
+		final Profile profile = new Profile();
+		profile.setFirstName("Ivan");
+		profile.setLastName("Ivanov");
+		profile.setPhone("+7-999-999-99-99");
+		profile.setEmail("test@test.com");
+		profile.setCity("Gorky-17");
+		profile.setCountry("Russia");
+		profile.setBirthDay(new Date(728861955903L));
+		return profile;
 	}
 }

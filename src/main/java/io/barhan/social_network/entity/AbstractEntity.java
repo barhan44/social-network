@@ -2,9 +2,7 @@ package io.barhan.social_network.entity;
 
 import java.io.Serializable;
 
-import io.barhan.social_network.model.AbstractModel;
-
-public abstract class AbstractEntity<T> extends AbstractModel implements Serializable {
+public abstract class AbstractEntity<T> implements Serializable {
 
 	private static final long serialVersionUID = -6971420548866010855L;
 
