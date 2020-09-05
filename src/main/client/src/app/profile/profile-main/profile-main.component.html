@@ -1,0 +1,17 @@
+<div class="card mb-2">
+  <img
+    class="card-img-top"
+    src="https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_960_720.png"
+    alt="avatar"
+  />
+  <div class="card-header text-center">
+    <h5>{{ (this.profile$ | async)?.fullName }}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><b>Date of Birth:</b> {{ (this.profile$ | async)?.birthDay }}</li>
+    <li class="list-group-item"><b>Country:</b> {{ (this.profile$ | async)?.country }}</li>
+    <li class="list-group-item"><b>City:</b> {{ (this.profile$ | async)?.city }}</li>
+    <li class="list-group-item"><b>Email:</b> {{ (this.profile$ | async)?.email }}</li>
+    <li class="list-group-item"><b>Phone:</b> {{ (this.profile$ | async)?.phone }}</li>
+  </ul>
+</div>
