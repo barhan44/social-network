@@ -72,6 +72,29 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 	@OrderBy("name ASC")
 	private List<Hobby> hobbies;
 
+	@OneToMany(mappedBy = "profile", cascade = { CascadeType.MERGE, CascadeType.PERSIST })
+	@OrderBy("id ASC")
+	private List<Skill> skills;
+	
+	@OneToMany(mappedBy = "profile", cascade = { CascadeType.MERGE, CascadeType.PERSIST })
+	private List<Education> education;
+
+	public List<Education> getEducation() {
+		return education;
+	}
+
+	public void setEducation(List<Education> education) {
+		this.education = education;
+	}
+
+	public List<Skill> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
+	}
+
 	public List<Hobby> getHobbies() {
 		return hobbies;
 	}
