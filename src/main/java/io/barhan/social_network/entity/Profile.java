@@ -3,12 +3,16 @@ package io.barhan.social_network.entity;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -63,6 +67,18 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 
 	@Column(name = "created", insertable = false)
 	private Timestamp created;
+
+	@OneToMany(mappedBy = "profile", cascade = { CascadeType.MERGE, CascadeType.PERSIST })
+	@OrderBy("name ASC")
+	private List<Hobby> hobbies;
+
+	public List<Hobby> getHobbies() {
+		return hobbies;
+	}
+
+	public void setHobbies(List<Hobby> hobbies) {
+		this.hobbies = hobbies;
+	}
 
 	public Profile() {
 	}
