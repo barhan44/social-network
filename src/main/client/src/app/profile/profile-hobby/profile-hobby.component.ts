@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { ProfileHobby } from '../model/profile.class';
 
 @Component({
   selector: 'app-profile-hobby',
   templateUrl: './profile-hobby.component.html',
-  styleUrls: ['./profile-hobby.component.scss']
+  styleUrls: ['./profile-hobby.component.scss'],
 })
-export class ProfileHobbyComponent implements OnInit {
+export class ProfileHobbyComponent {
+  @Input() hobbies: ProfileHobby[];
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor() {}
 }

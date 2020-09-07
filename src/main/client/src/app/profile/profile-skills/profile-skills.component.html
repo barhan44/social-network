@@ -3,10 +3,19 @@
     Skills
   </div>
   <div class="card-body">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Java</li>
-      <li class="list-group-item">Javascript</li>
-    </ul>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Skill</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let skill of skills">
+          <td>{{ skill.category }}</td>
+          <td>{{ skill.value }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
-

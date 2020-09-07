@@ -1,21 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Store } from '@ngrx/store';
-import { RootState } from '../../store/state/root.state';
-import { Profile } from '../../store/model';
-import { LoadProfile } from '../../store/actions/profile.actions';
+import { Observable } from 'rxjs';
+
+import { Profile } from '../model/profile.class';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProfileService {
-  constructor(private http: HttpClient, private store: Store<RootState>) {}
+  constructor(private http: HttpClient) {}
 
-  public loadProfile(): void {
-    this.http
-      .get<Profile>('/api/profile/test-user')
-      .subscribe((profile: Profile) =>
-        this.store.dispatch(new LoadProfile(profile))
-      );
+  public load(): Observable<Profile> {
+    return this.http.get<Profile>('/api/profile/test-user');
   }
 }

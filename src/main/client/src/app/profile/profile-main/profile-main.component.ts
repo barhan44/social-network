@@ -1,21 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Component, Input } from '@angular/core';
 
-import { Profile } from '../../store/model';
-import { RootState } from '../../store/state/root.state';
+import { Profile } from '../model/profile.class';
 
 @Component({
   selector: 'app-profile-main',
   templateUrl: './profile-main.component.html',
   styleUrls: ['./profile-main.component.scss'],
 })
-export class ProfileMainComponent implements OnInit {
-  profile$: Observable<Profile>;
+export class ProfileMainComponent {
+  @Input() profile: Profile;
 
-  constructor(private store: Store<RootState>) {}
-
-  ngOnInit(): void {
-    this.profile$ = this.store.select('profile');
-  }
+  constructor() {}
 }

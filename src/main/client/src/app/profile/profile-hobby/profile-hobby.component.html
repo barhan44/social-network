@@ -4,9 +4,9 @@
   </div>
   <div class="card-body">
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Computer Science</li>
-      <li class="list-group-item">Hockey</li>
-      <li class="list-group-item">Cybersport</li>
+      <li class="list-group-item" *ngFor="let hobby of hobbies">
+        {{ hobby.name }}
+      </li>
     </ul>
   </div>
 </div>

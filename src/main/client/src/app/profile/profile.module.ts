@@ -9,6 +9,8 @@ import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { ProfileSkillsComponent } from './profile-skills/profile-skills.component';
 import { ProfileEducationComponent } from './profile-education/profile-education.component';
 import { ProfileSummaryComponent } from './profile-summary/profile-summary.component';
+import { ProfileStoreModule } from './store/profile-store.module';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,6 @@ import { ProfileSummaryComponent } from './profile-summary/profile-summary.compo
     ProfileEducationComponent,
     ProfileSummaryComponent,
   ],
-  imports: [CommonModule, ProfileRoutingModule],
+  imports: [ CommonModule, ProfileRoutingModule, ProfileStoreModule, ComponentsModule ],
 })
 export class ProfileModule {}

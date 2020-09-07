@@ -5,13 +5,15 @@
     alt="avatar"
   />
   <div class="card-header text-center">
-    <h5>{{ (this.profile$ | async)?.fullName }}</h5>
+    <h5>{{ this.profile?.fullName }}</h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><b>Date of Birth:</b> {{ (this.profile$ | async)?.birthDay }}</li>
-    <li class="list-group-item"><b>Country:</b> {{ (this.profile$ | async)?.country }}</li>
-    <li class="list-group-item"><b>City:</b> {{ (this.profile$ | async)?.city }}</li>
-    <li class="list-group-item"><b>Email:</b> {{ (this.profile$ | async)?.email }}</li>
-    <li class="list-group-item"><b>Phone:</b> {{ (this.profile$ | async)?.phone }}</li>
+    <li class="list-group-item">
+      <b>Date of Birth:</b> {{ this.profile?.birthDay }}
+    </li>
+    <li class="list-group-item"><b>Country:</b> {{ this.profile?.country }}</li>
+    <li class="list-group-item"><b>City:</b> {{ this.profile?.city }}</li>
+    <li class="list-group-item"><b>Email:</b> {{ this.profile?.email }}</li>
+    <li class="list-group-item"><b>Phone:</b> {{ this.profile?.phone }}</li>
   </ul>
 </div>

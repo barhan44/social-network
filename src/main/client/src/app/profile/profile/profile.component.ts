@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { RootState } from '../../store/state/root.state';
-import { ProfileService } from '../services/profile.service';
+import { Observable } from 'rxjs';
+
+import { ProfileStoreService } from '../store/profile-store.service';
+import { Profile } from '../model/profile.class';
 
 @Component({
   selector: 'app-profile',
@@ -9,12 +10,16 @@ import { ProfileService } from '../services/profile.service';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  constructor(
-    private store: Store<RootState>,
-    private profileService: ProfileService
-  ) {
-    this.profileService.loadProfile();
-  }
+  public profile$: Observable<Profile>;
+  public loading$: Observable<boolean>;
+  public error$: Observable<string>;
 
-  ngOnInit(): void {}
+  constructor(private profileStoreService: ProfileStoreService) {}
+
+  ngOnInit(): void {
+    this.profileStoreService.dispatchLoadAction();
+    this.profile$ = this.profileStoreService.getProfile();
+    this.loading$ = this.profileStoreService.getIsLoading();
+    this.error$ = this.profileStoreService.getError();
+  }
 }

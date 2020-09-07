@@ -1,26 +1,25 @@
 <div class="card mb-2">
   <div class="card-header">
-    Hobby
+    Education
   </div>
   <div class="card-body">
     <table class="table text-center">
       <thead>
-      <tr>
-        <th>Start</th>
-        <th>Finish</th>
-        <th>Institution</th>
-        <th>Specialization</th>
-      </tr>
+        <tr>
+          <th>Start</th>
+          <th>Finish</th>
+          <th>Institution</th>
+          <th>Specialization</th>
+        </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>2010</td>
-        <td>2015</td>
-        <td>UNN</td>
-        <td>Computer Science</td>
-      </tr>
+        <tr *ngFor="let e of education">
+          <td>{{ e.beginYear }}</td>
+          <td>{{ e.finishYear }}</td>
+          <td>{{ e.institution }}</td>
+          <td>{{ e.specialization }}</td>
+        </tr>
       </tbody>
     </table>
   </div>
 </div>
-
