@@ -17,6 +17,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "profile")
 public class Profile extends AbstractEntity<Long> implements Serializable {
@@ -24,6 +26,7 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 	private static final long serialVersionUID = 6817930615460771589L;
 
 	@Id
+	@JsonIgnore
 	@SequenceGenerator(name = "PROFILE_ID_GENERATOR", sequenceName = "PROFILE_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PROFILE_ID_GENERATOR")
 	@Column(name = "id", unique = true, nullable = false)
@@ -32,9 +35,11 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 	@Column(name = "uid", nullable = false, length = 100)
 	private String uid;
 
+	@JsonIgnore
 	@Column(name = "first_name", nullable = false, length = 100)
 	private String firstName;
 
+	@JsonIgnore
 	@Column(name = "last_name", nullable = false, length = 100)
 	private String lastName;
 
@@ -59,12 +64,15 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 	@Column(name = "birth_day")
 	private Date birthDay;
 
+	@JsonIgnore
 	@Column(name = "password", length = 100, nullable = false)
 	private String password;
 
+	@JsonIgnore
 	@Column(name = "completed", nullable = false)
 	private boolean completed;
 
+	@JsonIgnore
 	@Column(name = "created", insertable = false)
 	private Timestamp created;
 
@@ -75,9 +83,12 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 	@OneToMany(mappedBy = "profile", cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	@OrderBy("id ASC")
 	private List<Skill> skills;
-	
+
 	@OneToMany(mappedBy = "profile", cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	private List<Education> education;
+
+	public Profile() {
+	}
 
 	public List<Education> getEducation() {
 		return education;
@@ -101,9 +112,6 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 
 	public void setHobbies(List<Hobby> hobbies) {
 		this.hobbies = hobbies;
-	}
-
-	public Profile() {
 	}
 
 	public Long getId() {

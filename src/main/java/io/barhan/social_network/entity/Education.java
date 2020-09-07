@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "education")
 public class Education extends AbstractEntity<Long> implements Serializable, ProfileEntity {
@@ -20,6 +22,7 @@ public class Education extends AbstractEntity<Long> implements Serializable, Pro
 	private static final long serialVersionUID = 2176003108707274587L;
 
 	@Id
+	@JsonIgnore
 	@SequenceGenerator(name = "EDUCATION_ID_GENERATOR", sequenceName = "EDUCATION_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EDUCATION_ID_GENERATOR")
 	@Column(unique = true, nullable = false)
@@ -37,9 +40,14 @@ public class Education extends AbstractEntity<Long> implements Serializable, Pro
 	@Column(nullable = false)
 	private String specialization;
 
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_profile", nullable = false)
 	private Profile profile;
+
+	public Profile getProfile() {
+		return profile;
+	}
 
 	@Override
 	public void setProfile(Profile profile) {
@@ -135,7 +143,5 @@ public class Education extends AbstractEntity<Long> implements Serializable, Pro
 			return false;
 		return true;
 	}
-	
-	
 
 }

@@ -13,11 +13,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "skill")
 public class Skill extends AbstractEntity<Long> implements Serializable, ProfileEntity {
+	
+	private static final long serialVersionUID = -4181971747755718633L;
 
 	@Id
+	@JsonIgnore
 	@SequenceGenerator(name = "SKILL_ID_GENERATOR", sequenceName = "SKILL_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SKILL_ID_GENERATOR")
 	@Column(unique = true, nullable = false)
@@ -29,11 +34,14 @@ public class Skill extends AbstractEntity<Long> implements Serializable, Profile
 	@Column(nullable = false)
 	private String value;
 
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_profile", nullable = false)
 	private Profile profile;
 
-	private static final long serialVersionUID = -4181971747755718633L;
+	public Profile getProfile() {
+		return profile;
+	}
 
 	@Override
 	public void setProfile(Profile profile) {
