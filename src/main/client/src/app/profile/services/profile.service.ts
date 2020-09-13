@@ -10,7 +10,7 @@ import { Profile } from '../model/profile.class';
 export class ProfileService {
   constructor(private http: HttpClient) {}
 
-  public load(): Observable<Profile> {
-    return this.http.get<Profile>('/api/profile/test-user');
+  public load(uid: string): Observable<Profile> {
+    return this.http.get<Profile>(`/api/profile/${uid}`);
   }
 }

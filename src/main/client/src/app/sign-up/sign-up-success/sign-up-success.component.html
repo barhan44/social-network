@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-header text-center">
+        <h3 class="card-title">Registration Success</h3>
+      </div>
+      <div class="card-body">
+        <div class="card text-center mb-1">
+          <div class="card-body">
+            <h6 class="card-subtitle">UID: {{ profileUid }}</h6>
+            <p class="card-text">Use this UID to enter your personal account</p>
+          </div>
+        </div>
+        <button
+          class="btn btn-success btn-block"
+          [routerLink]="['/', 'profile', 'edit', profileUid]"
+        >
+          Complete Registration
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

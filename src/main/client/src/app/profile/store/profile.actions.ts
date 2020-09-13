@@ -8,9 +8,9 @@ export enum ProfileActions {
   ERROR = '[Profile] Error',
 }
 
-export const load = createAction(ProfileActions.LOAD);
+export const load = createAction(ProfileActions.LOAD, props<{ uid: string }>());
 export const loadSuccess = createAction(
   ProfileActions.LOAD_SUCCESS,
-  props<{profile: Profile}>()
+  props<{ profile: Profile }>()
 );
 export const error = createAction(ProfileActions.ERROR, props<any>());

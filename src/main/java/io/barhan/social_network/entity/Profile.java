@@ -19,8 +19,15 @@ import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "profile")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Profile extends AbstractEntity<Long> implements Serializable {
 
 	private static final long serialVersionUID = 6817930615460771589L;
@@ -86,145 +93,6 @@ public class Profile extends AbstractEntity<Long> implements Serializable {
 
 	@OneToMany(mappedBy = "profile", cascade = { CascadeType.MERGE, CascadeType.PERSIST })
 	private List<Education> education;
-
-	public Profile() {
-	}
-
-	public List<Education> getEducation() {
-		return education;
-	}
-
-	public void setEducation(List<Education> education) {
-		this.education = education;
-	}
-
-	public List<Skill> getSkills() {
-		return skills;
-	}
-
-	public void setSkills(List<Skill> skills) {
-		this.skills = skills;
-	}
-
-	public List<Hobby> getHobbies() {
-		return hobbies;
-	}
-
-	public void setHobbies(List<Hobby> hobbies) {
-		this.hobbies = hobbies;
-	}
-
-	public Long getId() {
-		return this.id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getUid() {
-		return this.uid;
-	}
-
-	public void setUid(String uid) {
-		this.uid = uid;
-	}
-
-	public String getFirstName() {
-		return this.firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getLargePhoto() {
-		return largePhoto;
-	}
-
-	public void setLargePhoto(String largePhoto) {
-		this.largePhoto = largePhoto;
-	}
-
-	public String getSmallPhoto() {
-		return smallPhoto;
-	}
-
-	public void setSmallPhoto(String smallPhoto) {
-		this.smallPhoto = smallPhoto;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public Date getBirthDay() {
-		return birthDay;
-	}
-
-	public void setBirthDay(Date birthDay) {
-		this.birthDay = birthDay;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public boolean isCompleted() {
-		return completed;
-	}
-
-	public void setCompleted(boolean completed) {
-		this.completed = completed;
-	}
-
-	public Timestamp getCreated() {
-		return created;
-	}
-
-	public void setCreated(Timestamp created) {
-		this.created = created;
-	}
 
 	@Transient
 	public String getFullName() {

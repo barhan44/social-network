@@ -15,10 +15,17 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "skill")
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = false)
 public class Skill extends AbstractEntity<Long> implements Serializable, ProfileEntity {
-	
+
 	private static final long serialVersionUID = -4181971747755718633L;
 
 	@Id
@@ -37,77 +44,7 @@ public class Skill extends AbstractEntity<Long> implements Serializable, Profile
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_profile", nullable = false)
+	@EqualsAndHashCode.Exclude
 	private Profile profile;
-
-	public Profile getProfile() {
-		return profile;
-	}
-
-	@Override
-	public void setProfile(Profile profile) {
-		this.profile = profile;
-	}
-
-	@Override
-	public Long getId() {
-		return this.id;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((category == null) ? 0 : category.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((value == null) ? 0 : value.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Skill other = (Skill) obj;
-		if (category == null) {
-			if (other.category != null)
-				return false;
-		} else if (!category.equals(other.category))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (value == null) {
-			if (other.value != null)
-				return false;
-		} else if (!value.equals(other.value))
-			return false;
-		return true;
-	}
 
 }

@@ -15,8 +15,17 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
 @Table(name = "hobby")
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
 public class Hobby extends AbstractEntity<Long> implements Serializable, Comparable<Hobby>, ProfileEntity {
 
 	private static final long serialVersionUID = -4084713440416949068L;
@@ -34,10 +43,8 @@ public class Hobby extends AbstractEntity<Long> implements Serializable, Compara
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_profile", nullable = false)
+	@EqualsAndHashCode.Exclude
 	private Profile profile;
-
-	public Hobby() {
-	}
 
 	public Hobby(String name) {
 		this.name = name;
@@ -49,32 +56,6 @@ public class Hobby extends AbstractEntity<Long> implements Serializable, Compara
 		this.profile = profile;
 	}
 
-	public Profile getProfile() {
-		return profile;
-	}
-
-	@Override
-	public void setProfile(Profile profile) {
-		this.profile = profile;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	@Override
-	public Long getId() {
-		return this.id;
-	}
-
 	@Override
 	public int compareTo(Hobby o) {
 		if (o == null || this.getName() == null) {
@@ -82,46 +63,6 @@ public class Hobby extends AbstractEntity<Long> implements Serializable, Compara
 		} else {
 			return this.getName().compareTo(o.getName());
 		}
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
-	}
-
-	@Override
-	public String toString() {
-		return String.format("Hobby [name=%s]", name);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Hobby other = (Hobby) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (profile == null) {
-			if (other.profile != null)
-				return false;
-		} else if (!profile.equals(other.profile))
-			return false;
-		return true;
 	}
 
 }

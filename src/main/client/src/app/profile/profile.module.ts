@@ -11,6 +11,7 @@ import { ProfileEducationComponent } from './profile-education/profile-education
 import { ProfileSummaryComponent } from './profile-summary/profile-summary.component';
 import { ProfileStoreModule } from './store/profile-store.module';
 import { ComponentsModule } from '../components/components.module';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,13 @@ import { ComponentsModule } from '../components/components.module';
     ProfileSkillsComponent,
     ProfileEducationComponent,
     ProfileSummaryComponent,
+    ProfileEditComponent,
   ],
-  imports: [ CommonModule, ProfileRoutingModule, ProfileStoreModule, ComponentsModule ],
+  imports: [
+    CommonModule,
+    ProfileRoutingModule,
+    ProfileStoreModule,
+    ComponentsModule,
+  ],
 })
 export class ProfileModule {}

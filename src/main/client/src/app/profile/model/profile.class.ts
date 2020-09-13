@@ -1,5 +1,5 @@
 export class Profile {
-  id: string;
+  uid: string;
   fullName: string;
   phone: string;
   email: string;
@@ -11,7 +11,7 @@ export class Profile {
   skills: ProfileSkill[];
 
   constructor(
-    id: string,
+    uid: string,
     fullName: string,
     phone: string,
     email: string,
@@ -22,7 +22,7 @@ export class Profile {
     education: ProfileEducation[],
     skills: ProfileSkill[]
   ) {
-    this.id = id;
+    this.uid = uid;
     this.fullName = fullName;
     this.phone = phone;
     this.email = email;

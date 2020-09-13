@@ -13,8 +13,8 @@ export class ProfileEffects {
   @Effect()
   loadAction$ = this.actions$.pipe(
     ofType(ProfileActions.load),
-    switchMap(() =>
-      this.api.load().pipe(
+    switchMap((props) =>
+      this.api.load(props.uid).pipe(
         map((res) => ProfileActions.loadSuccess({ profile: res })),
         catchError((error) => ProfileEffects.handleError(error))
       )

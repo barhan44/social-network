@@ -11,7 +11,10 @@ import * as state from './profile.state';
 @Injectable()
 export class ProfileStoreService extends StoreService {
   private profileState = createFeatureSelector<state.ProfileState>('profile');
-  private getProfileState = createSelector(this.profileState, state.selectProfile);
+  private getProfileState = createSelector(
+    this.profileState,
+    state.selectProfile
+  );
   private isLoading = createSelector(this.profileState, state.selectIsLoading);
   private error = createSelector(this.profileState, state.selectError);
 
@@ -19,8 +22,8 @@ export class ProfileStoreService extends StoreService {
     super();
   }
 
-  dispatchLoadAction(): void {
-    this.dispatchAction(ProfileActions.load());
+  dispatchLoadAction(uid: string): void {
+    this.dispatchAction(ProfileActions.load({ uid }));
   }
 
   dispatchCreateAction(entity: any): void {}
