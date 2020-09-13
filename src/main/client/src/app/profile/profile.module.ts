@@ -12,6 +12,12 @@ import { ProfileSummaryComponent } from './profile-summary/profile-summary.compo
 import { ProfileStoreModule } from './store/profile-store.module';
 import { ComponentsModule } from '../components/components.module';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { ProfileEditMainComponent } from './profile-edit-main/profile-edit-main.component';
+import { ProfileEditEducationComponent } from './profile-edit-education/profile-edit-education.component';
+import { ProfileEditHobbyComponent } from './profile-edit-hobby/profile-edit-hobby.component';
+import { ProfileEditInfoComponent } from './profile-edit-info/profile-edit-info.component';
+import { ProfileEditSkillsComponent } from './profile-edit-skills/profile-edit-skills.component';
+import { ProfileEditSummaryComponent } from './profile-edit-summary/profile-edit-summary.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +29,12 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     ProfileEducationComponent,
     ProfileSummaryComponent,
     ProfileEditComponent,
+    ProfileEditMainComponent,
+    ProfileEditEducationComponent,
+    ProfileEditHobbyComponent,
+    ProfileEditInfoComponent,
+    ProfileEditSkillsComponent,
+    ProfileEditSummaryComponent,
   ],
   imports: [
     CommonModule,
